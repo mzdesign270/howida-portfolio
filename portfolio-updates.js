@@ -27,7 +27,7 @@
             content: "نقدم خدمات تنظيم وإدارة العروض الترفيهية والسيرك لإضفاء أجواء استثنائية على الفعاليات والمناسبات. نوفر عروضًا متنوعة تناسب جميع الأعمار، تشمل عروض السيرك، والبهلوانات، والفقرات التفاعلية، والعروض المسرحية، وغيرها من الفعاليات الترفيهية.\n\nنحرص على تقديم تجربة ممتعة وآمنة تُسهم في نجاح الحدث وترك انطباع لا يُنسى لدى الحضور، مع الاهتمام بأدق التفاصيل لضمان أعلى مستويات الجودة والاحترافية."
         },
         "sessions": {
-            keywords: ["Branding & Vehicle", "علامة تجارية ومركبات"],
+            keywords: ["Branding & Vehicle", "تنظيم الجلسات", "علامة تجارية ومركبات"],
             title: "تنظيم الجلسات",
             content: "نقدم خدمات تنظيم الجلسات بمختلف أنواعها، سواء كانت جلسات حوارية، أو اجتماعات، أو ندوات، أو لقاءات خاصة. نهتم بتجهيز المكان، وتنسيق التفاصيل، وإدارة الجلسة بما يضمن تجربة احترافية ومريحة للحضور.\n\nنحرص على توفير بيئة منظمة تعكس هوية المناسبة، مع الاهتمام بأدق التفاصيل لضمان نجاح الجلسة وتحقيق أهدافها."
         }
@@ -46,29 +46,32 @@
             `;
             document.body.insertAdjacentHTML('beforeend', modalHtml);
             document.getElementById('close-modal').onclick = () => document.getElementById('custom-modal').style.display = 'none';
+            window.onclick = (e) => { if (e.target == document.getElementById('custom-modal')) document.getElementById('custom-modal').style.display = 'none'; };
         }
 
         const modal = document.getElementById('custom-modal');
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
 
-        // استبدال نصوص معينة بشكل آمن جداً فقط إذا كانت تطابق تماماً
-        document.querySelectorAll('span, p, h1, h2, h3, h4, h5, h6').forEach(el => {
-            if (el.textContent.trim() === "تصميم علامة تجارية ومركبات") {
-                el.textContent = "تنظيم الجلسات";
+        // استبدال شامل وآمن لـ "مؤسسة" بـ "وكالة" و "تصميم علامة تجارية" بـ "تنظيم الجلسات"
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while(node = walker.nextNode()) {
+            let text = node.nodeValue;
+            if (text.includes("مؤسسة")) {
+                node.nodeValue = text.replace(/مؤسسة/g, "وكالة");
             }
-            // استبدال "مؤسسة" بـ "وكالة" فقط في العناوين الرئيسية لتجنب تخريب الفقرات
-            if (el.tagName.startsWith('H') && el.textContent.includes("مؤسسة هويدا سمسم")) {
-                el.textContent = el.textContent.replace(/مؤسسة/g, "وكالة");
+            if (text.includes("تصميم علامة تجارية ومركبات")) {
+                node.nodeValue = text.replace("تصميم علامة تجارية ومركبات", "تنظيم الجلسات");
             }
-        });
+        }
 
-        // حقن الأزرار بناءً على الكلمات المفتاحية الإنجليزية (لأنها أكثر ثباتاً في التصميم)
+        // حقن الأزرار
         for (const key in servicesData) {
             const service = servicesData[key];
             service.keywords.forEach(kw => {
                 document.querySelectorAll('*').forEach(el => {
-                    if (el.children.length === 0 && el.textContent.trim() === kw) {
+                    if (el.children.length === 0 && el.textContent.trim().toLowerCase() === kw.toLowerCase()) {
                         const container = el.parentElement;
                         if (container && !container.querySelector('.learn-more-btn')) {
                             const btn = document.createElement('button');
@@ -77,7 +80,7 @@
                             btn.style.cssText = `
                                 display: block;
                                 margin: 12px auto 0;
-                                padding: 5px 15px;
+                                padding: 6px 18px;
                                 background-color: #d4af37;
                                 border: none;
                                 color: #fff;
@@ -104,6 +107,6 @@
         }
     }
 
-    setInterval(initUpdates, 3000);
+    setInterval(initUpdates, 2000);
     initUpdates();
 })();

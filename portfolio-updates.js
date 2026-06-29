@@ -63,6 +63,10 @@
             if (text.includes("علامة تجارية ومركبات")) {
                 el.textContent = el.textContent.replace("تصميم علامة تجارية ومركبات", "تنظيم الجلسات");
             }
+            // استبدال "مؤسسة" بـ "وكالة"
+            if (text.includes("مؤسسة")) {
+                el.textContent = el.textContent.replace(/مؤسسة/g, "وكالة");
+            }
 
             // البحث عن الخدمة المناسبة بناءً على الكلمات المفتاحية
             let foundService = null;

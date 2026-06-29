@@ -1,4 +1,3 @@
-
 (function() {
     const servicesData = {
         "advertising": {
@@ -59,16 +58,13 @@
             const text = el.textContent.trim();
             if (text === "") return;
 
-            // استبدال نص "تصميم علامة تجارية ومركبات" بـ "تنظيم الجلسات"
             if (text.includes("علامة تجارية ومركبات")) {
                 el.textContent = el.textContent.replace("تصميم علامة تجارية ومركبات", "تنظيم الجلسات");
             }
-            // استبدال "مؤسسة" بـ "وكالة"
             if (text.includes("مؤسسة")) {
                 el.textContent = el.textContent.replace(/مؤسسة/g, "وكالة");
             }
 
-            // البحث عن الخدمة المناسبة بناءً على الكلمات المفتاحية
             let foundService = null;
             for (const key in servicesData) {
                 if (servicesData[key].keywords.some(kw => text.includes(kw))) {
@@ -78,8 +74,6 @@
             }
 
             if (foundService) {
-                // التأكد من أننا نضع الزر مرة واحدة فقط لكل قسم
-                // نبحث عن أقرب حاوية (Container) تحتوي على النص
                 const container = el.closest('div');
                 if (container && !container.querySelector('.learn-more-btn')) {
                     const btn = document.createElement('button');
@@ -107,9 +101,6 @@
                         modalBody.textContent = foundService.content;
                         modal.style.display = 'flex';
                     };
-                    
-                    // نضع الزر بعد العنصر الذي يحتوي على النص الإنجليزي (مثل ADVERTISING)
-                    // أو في نهاية الحاوية
                     container.appendChild(btn);
                 }
             }

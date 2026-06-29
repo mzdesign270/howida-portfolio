@@ -1,32 +1,33 @@
+
 (function() {
     const servicesData = {
         "advertising": {
-            keywords: ["دعاية", "إعلان", "ADVERTISING"],
+            keywords: ["ADVERTISING", "دعاية وإعلان"],
             title: "الدعاية والإعلان",
             content: "نساعدك على الوصول إلى عملائك بطريقة احترافية من خلال تصميم وإدارة الحملات الإعلانية التي تعزز ظهور نشاطك التجاري وتزيد من فرص المبيعات. نقدم حلولًا إعلانية مبتكرة تناسب مختلف المنصات، مع التركيز على جذب العملاء وتحقيق أفضل النتائج بأفضل تكلفة.\n\nسواء كنت تمتلك مشروعًا جديدًا أو علامة تجارية قائمة، فإننا نعمل على إنشاء محتوى إعلاني جذاب واستراتيجيات تسويقية تساعدك على النمو وبناء حضور قوي في السوق."
         },
         "media": {
-            keywords: ["مرئي", "مسموع", "MEDIA PRODUCTION"],
+            keywords: ["MEDIA PRODUCTION", "إنتاج مرئي ومسموع"],
             title: "الإنتاج المرئي والمسموع",
             content: "نقدم خدمات إنتاج مرئي ومسموع احترافية تساعد على إبراز هويتك وجذب جمهورك المستهدف. نقوم بإنتاج الفيديوهات الترويجية، والإعلانات، والموشن جرافيك، والمحتوى الصوتي بجودة عالية تناسب مختلف المنصات الرقمية.\n\nنحرص على تقديم محتوى إبداعي يعكس رسالتك ويترك انطباعًا مميزًا لدى عملائك، بدءًا من الفكرة والتخطيط وحتى المونتاج والإخراج النهائي."
         },
         "events": {
-            keywords: ["فعاليات", "مؤتمرات", "EVENTS"],
+            keywords: ["EVENTS", "تنظيم فعاليات ومؤتمرات"],
             title: "تنظيم الفعاليات والمؤتمرات",
             content: "نقدم خدمات متكاملة لتنظيم الفعاليات والمؤتمرات بااحترافية عالية، بدءًا من التخطيط والتنسيق وحتى التنفيذ. نهتم بجميع التفاصيل لضمان تجربة مميزة للحضور وتحقيق أهداف الحدث.\n\nسواء كانت مؤتمرات، معارض، ورش عمل، أو حفلات إطلاق المنتجات، نعمل على تقديم حلول تنظيمية مبتكرة تعكس هوية الجهة المنظمة وتضمن نجاح الفعالية بأعلى معايير الجودة."
         },
         "gifts": {
-            keywords: ["هدايا", "طباعة", "GIFTS"],
+            keywords: ["GIFTS", "هدايا دعائية وطباعة"],
             title: "الهدايا الدعائية والطباعة",
             content: "نوفر مجموعة متنوعة من الهدايا الدعائية وخدمات الطباعة الاحترافية التي تعزز هوية علامتك التجارية وتترك انطباعًا مميزًا لدى عملائك. نقدم طباعة عالية الجودة على مختلف المواد، مع إمكانية تخصيص التصاميم بما يتناسب مع احتياجاتك.\n\nسواء كنت بحاجة إلى بطاقات أعمال، بروشورات، لوحات، أكواب، أقلام، أو هدايا تحمل شعار شركتك، فإننا نقدم حلولًا متكاملة تجمع بين الجودة، والأناقة، والاحترافية."
         },
         "entertainment": {
-            keywords: ["ترفيه", "سيرك", "ENTERTAINMENT"],
+            keywords: ["ENTERTAINMENT", "ترفيه وسيرك"],
             title: "وكالة الترفيه والسيرك",
             content: "نقدم خدمات تنظيم وإدارة العروض الترفيهية والسيرك لإضفاء أجواء استثنائية على الفعاليات والمناسبات. نوفر عروضًا متنوعة تناسب جميع الأعمار، تشمل عروض السيرك، والبهلوانات، والفقرات التفاعلية، والعروض المسرحية، وغيرها من الفعاليات الترفيهية.\n\nنحرص على تقديم تجربة ممتعة وآمنة تُسهم في نجاح الحدث وترك انطباع لا يُنسى لدى الحضور، مع الاهتمام بأدق التفاصيل لضمان أعلى مستويات الجودة والاحترافية."
         },
         "sessions": {
-            keywords: ["جلسات", "SESSIONS", "علامة تجارية ومركبات"],
+            keywords: ["Branding & Vehicle", "علامة تجارية ومركبات"],
             title: "تنظيم الجلسات",
             content: "نقدم خدمات تنظيم الجلسات بمختلف أنواعها، سواء كانت جلسات حوارية، أو اجتماعات، أو ندوات، أو لقاءات خاصة. نهتم بتجهيز المكان، وتنسيق التفاصيل، وإدارة الجلسة بما يضمن تجربة احترافية ومريحة للحضور.\n\nنحرص على توفير بيئة منظمة تعكس هوية المناسبة، مع الاهتمام بأدق التفاصيل لضمان نجاح الجلسة وتحقيق أهدافها."
         }
@@ -35,78 +36,74 @@
     function initUpdates() {
         if (!document.getElementById('custom-modal')) {
             const modalHtml = `
-                <div id="custom-modal" style="display:none; position:fixed; z-index:999999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.85); backdrop-filter:blur(10px); justify-content:center; align-items:center;">
-                    <div style="background-color:#fff; padding:35px; border-radius:20px; max-width:600px; width:90%; position:relative; box-shadow:0 25px 60px rgba(0,0,0,0.5); text-align:right; font-family:'Tajawal', sans-serif; border-top: 6px solid #d4af37;">
-                        <span id="close-modal" style="position:absolute; top:20px; left:20px; font-size:35px; cursor:pointer; color:#bbb; line-height:0.8;">&times;</span>
-                        <h2 id="modal-title" style="color:#d4af37; margin-bottom:20px; font-family:'Cormorant Garamond', serif; font-size:30px; border-bottom: 1px solid #eee; padding-bottom: 10px;"></h2>
-                        <p id="modal-body" style="line-height:1.8; color:#333; font-size:17px; white-space:pre-line;"></p>
+                <div id="custom-modal" style="display:none; position:fixed; z-index:999999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); backdrop-filter:blur(8px); justify-content:center; align-items:center;">
+                    <div style="background-color:#fff; padding:30px; border-radius:15px; max-width:550px; width:90%; position:relative; box-shadow:0 20px 50px rgba(0,0,0,0.5); text-align:right; font-family:'Tajawal', sans-serif; border-top: 5px solid #d4af37;">
+                        <span id="close-modal" style="position:absolute; top:15px; left:15px; font-size:30px; cursor:pointer; color:#999; line-height:1;">&times;</span>
+                        <h2 id="modal-title" style="color:#d4af37; margin-bottom:20px; font-family:'Cormorant Garamond', serif; font-size:26px; border-bottom: 1px solid #eee; padding-bottom: 10px;"></h2>
+                        <p id="modal-body" style="line-height:1.7; color:#333; font-size:16px; white-space:pre-line;"></p>
                     </div>
                 </div>
             `;
             document.body.insertAdjacentHTML('beforeend', modalHtml);
             document.getElementById('close-modal').onclick = () => document.getElementById('custom-modal').style.display = 'none';
-            window.onclick = (e) => { if (e.target == document.getElementById('custom-modal')) document.getElementById('custom-modal').style.display = 'none'; };
         }
 
         const modal = document.getElementById('custom-modal');
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
 
-        const allElements = document.querySelectorAll('h1, h2, h3, h4, h5, h6, span, p, div');
-        
-        allElements.forEach(el => {
-            const text = el.textContent.trim();
-            if (text === "") return;
-
-            if (text.includes("علامة تجارية ومركبات")) {
-                el.textContent = el.textContent.replace("تصميم علامة تجارية ومركبات", "تنظيم الجلسات");
+        // استبدال نصوص معينة بشكل آمن جداً فقط إذا كانت تطابق تماماً
+        document.querySelectorAll('span, p, h1, h2, h3, h4, h5, h6').forEach(el => {
+            if (el.textContent.trim() === "تصميم علامة تجارية ومركبات") {
+                el.textContent = "تنظيم الجلسات";
             }
-            if (text.includes("مؤسسة")) {
+            // استبدال "مؤسسة" بـ "وكالة" فقط في العناوين الرئيسية لتجنب تخريب الفقرات
+            if (el.tagName.startsWith('H') && el.textContent.includes("مؤسسة هويدا سمسم")) {
                 el.textContent = el.textContent.replace(/مؤسسة/g, "وكالة");
             }
-
-            let foundService = null;
-            for (const key in servicesData) {
-                if (servicesData[key].keywords.some(kw => text.includes(kw))) {
-                    foundService = servicesData[key];
-                    break;
-                }
-            }
-
-            if (foundService) {
-                const container = el.closest('div');
-                if (container && !container.querySelector('.learn-more-btn')) {
-                    const btn = document.createElement('button');
-                    btn.textContent = 'اعرف أكثر';
-                    btn.className = 'learn-more-btn';
-                    btn.style.cssText = `
-                        display: block;
-                        margin: 10px auto 0;
-                        padding: 6px 18px;
-                        background-color: rgba(212, 175, 55, 0.9);
-                        border: 1px solid #d4af37;
-                        color: #fff;
-                        border-radius: 20px;
-                        cursor: pointer;
-                        font-family: 'Tajawal', sans-serif;
-                        font-size: 13px;
-                        transition: all 0.3s ease;
-                        z-index: 10;
-                        position: relative;
-                    `;
-                    btn.onclick = (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        modalTitle.textContent = foundService.title;
-                        modalBody.textContent = foundService.content;
-                        modal.style.display = 'flex';
-                    };
-                    container.appendChild(btn);
-                }
-            }
         });
+
+        // حقن الأزرار بناءً على الكلمات المفتاحية الإنجليزية (لأنها أكثر ثباتاً في التصميم)
+        for (const key in servicesData) {
+            const service = servicesData[key];
+            service.keywords.forEach(kw => {
+                document.querySelectorAll('*').forEach(el => {
+                    if (el.children.length === 0 && el.textContent.trim() === kw) {
+                        const container = el.parentElement;
+                        if (container && !container.querySelector('.learn-more-btn')) {
+                            const btn = document.createElement('button');
+                            btn.textContent = 'اعرف أكثر';
+                            btn.className = 'learn-more-btn';
+                            btn.style.cssText = `
+                                display: block;
+                                margin: 12px auto 0;
+                                padding: 5px 15px;
+                                background-color: #d4af37;
+                                border: none;
+                                color: #fff;
+                                border-radius: 20px;
+                                cursor: pointer;
+                                font-family: 'Tajawal', sans-serif;
+                                font-size: 12px;
+                                transition: all 0.3s ease;
+                                position: relative;
+                                z-index: 100;
+                            `;
+                            btn.onclick = (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                modalTitle.textContent = service.title;
+                                modalBody.textContent = service.content;
+                                modal.style.display = 'flex';
+                            };
+                            container.appendChild(btn);
+                        }
+                    }
+                });
+            });
+        }
     }
 
-    setInterval(initUpdates, 2000);
+    setInterval(initUpdates, 3000);
     initUpdates();
 })();

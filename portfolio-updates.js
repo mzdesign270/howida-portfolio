@@ -110,3 +110,42 @@
     setInterval(initUpdates, 2000);
     initUpdates();
 })();
+
+// تحسين سطوع صور الهيرو
+(function() {
+    const style = document.createElement('style');
+    style.textContent = `
+        /* استهداف حاويات الصور في الهيرو ورفع السطوع */
+        .hero-section img, 
+        header img, 
+        [class*="hero"] img,
+        .swiper-slide img {
+            filter: brightness(1.2) contrast(1.1) !important;
+            transition: filter 0.5s ease;
+        }
+        
+        /* تأثير الوهج الذهبي للماوس (اختياري - تمت إضافته لجمالية الموقع) */
+        .mouse-glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+    `;
+    document.head.appendChild(style);
+
+    // إضافة وهج الماوس
+    const glow = document.createElement('div');
+    glow.className = 'mouse-glow';
+    document.body.appendChild(glow);
+
+    document.addEventListener('mousemove', (e) => {
+        glow.style.left = e.clientX + 'px';
+        glow.style.top = e.clientY + 'px';
+    });
+})();

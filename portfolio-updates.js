@@ -117,21 +117,23 @@
     style.textContent = `
         /* استهداف حاويات الصور في الهيرو ورفع السطوع */
         /* إزالة طبقة التعتيم السوداء عن صور الهيرو */
+        /* إلغاء التعتيم تماماً عن صور الهيرو */
         .hero-section::before, 
         header::before, 
         [class*="hero"]::before,
         .swiper-slide::before,
         .overlay,
         [class*="overlay"] {
-            background: rgba(0,0,0,0.2) !important; /* تقليل التعتيم من 0.7 إلى 0.2 */
+            background: transparent !important; /* شفاف تماماً */
             background-image: none !important;
+            opacity: 0 !important;
         }
         
         .hero-section img, 
         header img, 
         [class*="hero"] img,
         .swiper-slide img {
-            filter: brightness(1.3) contrast(1.1) !important;
+            filter: brightness(1.5) contrast(1.2) !important; /* سطوع عالي جداً */
             transition: filter 0.5s ease;
         }
         

@@ -116,11 +116,22 @@
     const style = document.createElement('style');
     style.textContent = `
         /* استهداف حاويات الصور في الهيرو ورفع السطوع */
+        /* إزالة طبقة التعتيم السوداء عن صور الهيرو */
+        .hero-section::before, 
+        header::before, 
+        [class*="hero"]::before,
+        .swiper-slide::before,
+        .overlay,
+        [class*="overlay"] {
+            background: rgba(0,0,0,0.2) !important; /* تقليل التعتيم من 0.7 إلى 0.2 */
+            background-image: none !important;
+        }
+        
         .hero-section img, 
         header img, 
         [class*="hero"] img,
         .swiper-slide img {
-            filter: brightness(1.2) contrast(1.1) !important;
+            filter: brightness(1.3) contrast(1.1) !important;
             transition: filter 0.5s ease;
         }
         
